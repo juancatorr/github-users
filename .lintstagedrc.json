@@ -1,6 +1,6 @@
 {
   "*.{js,jsx,ts,tsx,json}": [
-    "biome check --apply",
-    "biome format --write"
+    "pnpm biome check --apply",
+    "pnpm biome format --write"
   ]
 }
