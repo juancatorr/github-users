@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   const cadenaLarga =
-    'Este es un string extremadamente largo que debería romper la regla de Prettier por exceder el printWidth configurado que era de 100 caracteres.';
-  console.log('🚀 ~ Home ~ cadenaLarga:', cadenaLarga);
+    'Este e configurado que era de 100 caracteres.';
+  console.error('🚀 ~ Home ~ cadenaLarga:', cadenaLarga);
   return (
     <>
       <Head>
