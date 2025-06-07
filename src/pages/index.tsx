@@ -1,19 +1,22 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import styles from '@/styles/Home.module.css';
+import { Geist, Geist_Mono } from 'next/font/google';
+import Head from 'next/head';
+import Image from 'next/image';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export default function Home() {
+  const cadenaLarga =
+    'Este es un string extremadamente largo que debería romper la regla de Prettier por exceder el printWidth configurado que era de 100 caracteres.';
+
   return (
     <>
       <Head>
