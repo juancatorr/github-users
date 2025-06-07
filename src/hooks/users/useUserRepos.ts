@@ -1,10 +1,13 @@
 import { githubService } from '@/services/github/githubService';
-import { useQuery } from '@tanstack/react-query';
+import { useApi } from '../common/useApi';
 
 export const useUserRepos = (username: string) => {
-  return useQuery({
-    queryKey: ['user-repos', username],
-    queryFn: () => githubService.getUserRepos(username),
-    enabled: !!username, // Solo se ejecuta si hay un username
-  });
+  return useApi(
+    ['user-repos', username],
+    () => githubService.getUserRepos(username),
+    {
+      enabled: !!username,
+      staleTime: 1000 * 60 * 30, //30 minutes
+    }
+  );
 };

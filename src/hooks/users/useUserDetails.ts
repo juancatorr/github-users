@@ -1,10 +1,12 @@
 import { githubService } from '@/services/github/githubService';
-import { useQuery } from '@tanstack/react-query';
+import { useApi } from '../common/useApi';
 
 export const useUserDetails = (username: string) => {
-  return useQuery({
-    queryKey: ['user', username],
-    queryFn: () => githubService.getUserDetails(username),
-    enabled: !!username, // Solo se ejecuta si hay un username
-  });
+  return useApi(
+    ['user', username],
+    () => githubService.getUserDetails(username),
+    {
+      enabled: !!username,
+    }
+  );
 };
