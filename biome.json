@@ -6,7 +6,10 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "error"
+      }
     }
   },
   "formatter": {
@@ -14,7 +17,8 @@
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 80
+    "lineWidth": 60,
+    "lineEnding": "lf"
   },
   "javascript": {
     "formatter": {
