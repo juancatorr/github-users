@@ -14,9 +14,6 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  const cadenaLarga =
-    'Este e configurado que era de 100 caracteres.';
-  console.error('🚀 ~ Home ~ cadenaLarga:', cadenaLarga);
   return (
     <>
       <Head>
