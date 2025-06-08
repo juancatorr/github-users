@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useDebounce } from '@/hooks/useDebounce';
+import { useEffect, useState } from 'react';
 import styles from './UsersGrid.module.scss';
 
 const {
   'users-grid__search': usersGrid__search,
   'users-grid__input': usersGrid__input,
-  'users-grid__button': usersGrid__button,
 } = styles;
 
 interface UsersSearchProps {
@@ -15,17 +15,14 @@ export function UsersSearch({
   onSearch,
 }: UsersSearchProps) {
   const [query, setQuery] = useState('');
+  const debouncedQuery = useDebounce(query, 500);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch(query);
-  };
+  useEffect(() => {
+    onSearch(debouncedQuery);
+  }, [debouncedQuery, onSearch]);
 
   return (
-    <form
-      className={usersGrid__search}
-      onSubmit={handleSubmit}
-    >
+    <div className={usersGrid__search}>
       <input
         type="text"
         value={query}
@@ -33,9 +30,6 @@ export function UsersSearch({
         placeholder="Search users..."
         className={usersGrid__input}
       />
-      <button type="submit" className={usersGrid__button}>
-        Search
-      </button>
-    </form>
+    </div>
   );
 }
