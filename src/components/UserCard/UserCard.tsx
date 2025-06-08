@@ -1,4 +1,5 @@
 import type { GitHubUser } from '@/types/github';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './UserCard.module.scss';
 
@@ -18,10 +19,13 @@ export function UserCard({ user }: UserCardProps) {
   return (
     <div className={userCard}>
       <div className={userCard__header}>
-        <img
+        <Image
           src={user.avatar_url}
           alt={user.login}
           className={userCard__avatar}
+          width={100}
+          height={100}
+          priority
         />
         <Link
           href={`/users/${user.login}`}
