@@ -27,6 +27,7 @@
   box-shadow: $shadow-md;
   padding: $spacing-md;
   transition: $transition-base;
+  position: relative;
 
   &:hover {
     transform: translateY(-2px);
@@ -60,6 +61,7 @@
     font-weight: $font-weight-medium;
     color: $color-gray-900;
     margin-left: $spacing-md;
+    margin-top: $spacing-md;
     max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
@@ -70,5 +72,21 @@
   &__info {
     color: $color-gray-600;
     font-size: $font-size-sm;
+  }
+
+  &__favorite {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-xs;
+    border-radius: $border-radius-full;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }

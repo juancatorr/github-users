@@ -24,6 +24,16 @@
     color: $color-primary;
   }
 
+  &__nav_link {
+    color: $color-gray-900;
+    font-weight: $font-weight-medium;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
   &__main {
     flex: 1;
     padding: $spacing-xl 0;

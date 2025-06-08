@@ -1,0 +1,14 @@
+@use '../../styles/abstracts' as *;
+
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-xs;
+  border-radius: $border-radius-full;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

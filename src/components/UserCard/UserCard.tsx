@@ -1,3 +1,4 @@
+import { FavoriteButton } from '@/components/FavoriteButton';
 import type { GitHubUser } from '@/types/github';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,6 +10,7 @@ const {
   'user-card__avatar': userCard__avatar,
   'user-card__username': userCard__username,
   'user-card__info': userCard__info,
+  'user-card__favorite': userCard__favorite,
 } = styles;
 
 interface UserCardProps {
@@ -21,6 +23,10 @@ export function UserCard({ user }: UserCardProps) {
       href={`/users/${user.login}`}
       className={userCard}
     >
+      <FavoriteButton
+        user={user}
+        className={userCard__favorite}
+      />
       <div className={userCard__header}>
         <Image
           src={user.avatar_url}

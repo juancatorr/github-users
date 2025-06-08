@@ -9,6 +9,7 @@ const {
   layout__main,
   layout__footer,
   layout__footer_content,
+  layout__nav_link,
 } = styles;
 
 interface LayoutProps {
@@ -22,6 +23,12 @@ export function Layout({ children }: LayoutProps) {
         <nav className={layout__nav}>
           <Link href="/users" className={layout__logo}>
             GitHub Users
+          </Link>
+          <Link
+            href="/users/favorites"
+            className={layout__nav_link}
+          >
+            Favorites
           </Link>
         </nav>
       </header>
