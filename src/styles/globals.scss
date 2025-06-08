@@ -1,0 +1,73 @@
+@use 'abstracts' as *;
+@import '@fontsource/work-sans/400.css';
+@import '@fontsource/work-sans/500.css';
+@import '@fontsource/work-sans/700.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $color-gray-900;
+  background-color: $color-gray-100;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    color: $color-secondary;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// Grid layout
+.grid {
+  display: grid;
+  gap: $spacing-md;
+  
+  &--2-cols {
+    @include respond(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &--3-cols {
+    @include respond(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  &--4-cols {
+    @include respond(xl) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

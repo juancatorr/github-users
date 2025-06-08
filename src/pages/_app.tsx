@@ -1,4 +1,4 @@
-import '@/styles/globals.css';
+import '@/styles/globals.scss';
 import { HydrationBoundary } from '@tanstack/react-query';
 import {
   QueryClient,
