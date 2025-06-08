@@ -8,6 +8,7 @@ import styles from './UsersGrid.module.scss';
 const {
   'users-grid__grid': usersGrid__grid,
   'users-grid__loading': usersGrid__loading,
+  'users-grid__counter': usersGrid__counter,
 } = styles;
 
 export function UsersContent() {
@@ -33,8 +34,16 @@ export function UsersContent() {
     return () => observer.disconnect();
   }, [hasNextPage, fetchNextPage]);
 
+  const totalUsers = pages.reduce(
+    (total, page) => total + page.users.length,
+    0
+  );
+
   return (
     <>
+      <div className={usersGrid__counter}>
+        Users shown: {totalUsers}
+      </div>
       <div className={usersGrid__grid}>
         {pages.map((page: UsersPage) =>
           page.users.map((user: GitHubUser) => (

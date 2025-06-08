@@ -9,6 +9,17 @@
     text-align: center;
   }
 
+  &__counter {
+    max-width: 1200px;
+    text-align: right;
+    padding: $spacing-md;
+    color: $color-gray-600;
+    font-size: $font-size-sm;
+    margin-right: auto;
+    margin-left: auto;
+
+  }
+
   &__grid {
     @include grid-auto-fit(280px, $spacing-md);
     padding: 0 $spacing-md;
