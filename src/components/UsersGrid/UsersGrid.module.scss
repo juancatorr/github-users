@@ -12,7 +12,6 @@
   &__search {
     max-width: 1200px;
     margin: 0 auto $spacing-lg;
-    padding: 0 $spacing-md;
     display: flex;
     gap: $spacing-sm;
   }
@@ -45,6 +44,34 @@
     }
   }
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__select {
+    padding: $spacing-xs $spacing-sm;
+    border: 1px solid $color-gray-300;
+    border-radius: $border-radius-md;
+    background-color: $color-white;
+    color: $color-gray-700;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: $transition-base;
+
+    &:hover {
+      border-color: $color-primary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+    }
+  }
+
   &__counter {
     max-width: 1200px;
     text-align: right;
@@ -57,7 +84,6 @@
 
   &__grid {
     @include grid-auto-fit(280px, $spacing-md);
-    padding: 0 $spacing-md;
     max-width: 1200px;
     margin: 0 auto;
   }

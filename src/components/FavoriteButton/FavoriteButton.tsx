@@ -1,5 +1,6 @@
 import { useFavoriteStore } from '@/store/favorites';
 import type { GitHubUser } from '@/types/github';
+import clsx from 'clsx';
 import { FaStar } from 'react-icons/fa';
 import styles from './FavoriteButton.module.scss';
 
@@ -8,11 +9,13 @@ const { 'favorite-button': favoriteButton } = styles;
 interface FavoriteButtonProps {
   user: GitHubUser;
   className?: string;
+  size?: number;
 }
 
 export function FavoriteButton({
   user,
   className,
+  size = 20,
 }: FavoriteButtonProps) {
   const { isFavorite, addFavorite, removeFavorite } =
     useFavoriteStore();
@@ -27,7 +30,7 @@ export function FavoriteButton({
     <button
       type="button"
       onClick={toggleFavorite}
-      className={`${favoriteButton} ${className ?? ''}`}
+      className={clsx(favoriteButton, className)}
       data-favorite={favorite}
       title={
         favorite
@@ -36,7 +39,7 @@ export function FavoriteButton({
       }
     >
       <FaStar
-        size={20}
+        size={size}
         color={favorite ? '#FFD700' : '#ccc'}
       />
     </button>

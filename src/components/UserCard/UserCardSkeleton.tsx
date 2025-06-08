@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import styles from './UserCard.module.scss';
 
 const {
@@ -6,8 +7,8 @@ const {
   'user-card__avatar': userCard__avatar,
   'user-card__username': userCard__username,
   'user-card__info': userCard__info,
-  skeleton: skeleton,
-  pulse: pulse,
+  skeleton,
+  pulse,
 } = styles;
 
 export function UserCardSkeleton() {
@@ -15,17 +16,25 @@ export function UserCardSkeleton() {
     <div className={userCard}>
       <div className={userCard__header}>
         <div
-          className={`${userCard__avatar} ${skeleton} ${pulse}`}
+          className={clsx(
+            userCard__avatar,
+            skeleton,
+            pulse
+          )}
           style={{ width: 50, height: 50 }}
         />
         <div
-          className={`${userCard__username} ${skeleton} ${pulse}`}
+          className={clsx(
+            userCard__username,
+            skeleton,
+            pulse
+          )}
           style={{ width: '80%', height: 24 }}
         />
       </div>
       <div className={userCard__info}>
         <div
-          className={`${skeleton} ${pulse}`}
+          className={clsx(skeleton, pulse)}
           style={{
             width: '60%',
             height: 20,
@@ -33,7 +42,7 @@ export function UserCardSkeleton() {
           }}
         />
         <div
-          className={`${skeleton} ${pulse}`}
+          className={clsx(skeleton, pulse)}
           style={{ width: '70%', height: 20 }}
         />
       </div>
