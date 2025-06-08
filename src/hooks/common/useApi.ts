@@ -1,10 +1,10 @@
 import type {
   QueryFunction,
   QueryKey,
-  UseQueryOptions,
-  UseQueryResult,
+  UseSuspenseQueryOptions,
+  UseSuspenseQueryResult,
 } from '@tanstack/react-query';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
 const defaultConfig = {
   staleTime: 1000 * 60 * 5, // 5 minutes
@@ -23,11 +23,16 @@ export function useApi<
   queryKey: TQueryKey,
   queryFn: QueryFunction<TQueryFnData, TQueryKey>,
   options?: Omit<
-    UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+    UseSuspenseQueryOptions<
+      TQueryFnData,
+      TError,
+      TData,
+      TQueryKey
+    >,
     'queryKey' | 'queryFn'
   >
-): UseQueryResult<TData, TError> {
-  return useQuery({
+): UseSuspenseQueryResult<TData, TError> {
+  return useSuspenseQuery({
     queryKey,
     queryFn,
     ...defaultConfig,
