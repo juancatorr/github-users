@@ -42,10 +42,12 @@ class GitHubService {
   }
 
   async searchUsers(
-    query: string
+    query: string,
+    page = 1,
+    perPage = 40
   ): Promise<GitHubSearchResponse> {
     return this.apiClient.fetch(
-      `/search/users?q=${encodeURIComponent(query)}`
+      `/search/users?q=${encodeURIComponent(query)}&page=${page}&per_page=${perPage}`
     );
   }
 }

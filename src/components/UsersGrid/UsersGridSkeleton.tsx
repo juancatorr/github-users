@@ -1,7 +1,9 @@
 import { UserCardSkeleton } from '../UserCard/UserCardSkeleton';
 import styles from './UsersGrid.module.scss';
 
-const { 'users-grid__grid': usersGrid__grid } = styles;
+const {
+  'users-grid__grid--skeleton': usersGrid__grid_skeleton,
+} = styles;
 
 export function UsersGridSkeleton() {
   const amountOfCards = Array.from(
@@ -9,7 +11,7 @@ export function UsersGridSkeleton() {
     (_, i) => i + 1
   );
   return (
-    <div className={usersGrid__grid}>
+    <div className={usersGrid__grid_skeleton}>
       {amountOfCards.map((id) => (
         <UserCardSkeleton key={id} />
       ))}

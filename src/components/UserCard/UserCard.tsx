@@ -17,7 +17,10 @@ interface UserCardProps {
 
 export function UserCard({ user }: UserCardProps) {
   return (
-    <div className={userCard}>
+    <Link
+      href={`/users/${user.login}`}
+      className={userCard}
+    >
       <div className={userCard__header}>
         <Image
           src={user.avatar_url}
@@ -27,17 +30,14 @@ export function UserCard({ user }: UserCardProps) {
           height={100}
           priority
         />
-        <Link
-          href={`/users/${user.login}`}
-          className={userCard__username}
-        >
+        <span className={userCard__username}>
           {user.login}
-        </Link>
+        </span>
       </div>
       <div className={userCard__info}>
         <p>ID: {user.id}</p>
         <p>Type: {user.type}</p>
       </div>
-    </div>
+    </Link>
   );
 }
