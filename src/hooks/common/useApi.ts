@@ -1,10 +1,15 @@
 import type {
   QueryFunction,
   QueryKey,
+  UseSuspenseInfiniteQueryOptions,
+  UseSuspenseInfiniteQueryResult,
   UseSuspenseQueryOptions,
   UseSuspenseQueryResult,
 } from '@tanstack/react-query';
-import { useSuspenseQuery } from '@tanstack/react-query';
+import {
+  useSuspenseInfiniteQuery,
+  useSuspenseQuery,
+} from '@tanstack/react-query';
 
 const defaultConfig = {
   staleTime: 1000 * 60 * 5, // 5 minutes
@@ -33,6 +38,52 @@ export function useApi<
   >
 ): UseSuspenseQueryResult<TData, TError> {
   return useSuspenseQuery({
+    queryKey,
+    queryFn,
+    ...defaultConfig,
+    ...options,
+  });
+}
+
+export function useInfiniteApi<
+  TQueryFnData,
+  TError = Error,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+  TPageParam = number,
+>(
+  queryKey: TQueryKey,
+  queryFn: QueryFunction<
+    TQueryFnData,
+    TQueryKey,
+    TPageParam
+  >,
+  options: Omit<
+    UseSuspenseInfiniteQueryOptions<
+      TQueryFnData,
+      TError,
+      TData,
+      TQueryKey,
+      TPageParam
+    >,
+    'queryKey' | 'queryFn'
+  > & {
+    getNextPageParam: UseSuspenseInfiniteQueryOptions<
+      TQueryFnData,
+      TError,
+      TData,
+      TQueryKey,
+      TPageParam
+    >['getNextPageParam'];
+  }
+): UseSuspenseInfiniteQueryResult<TData, TError> {
+  return useSuspenseInfiniteQuery<
+    TQueryFnData,
+    TError,
+    TData,
+    TQueryKey,
+    TPageParam
+  >({
     queryKey,
     queryFn,
     ...defaultConfig,
