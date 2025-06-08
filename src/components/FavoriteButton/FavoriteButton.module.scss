@@ -1,5 +1,17 @@
 @use '../../styles/abstracts' as *;
 
+@keyframes favorite-pop {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.4) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
 .favorite-button {
   background: none;
   border: none;
@@ -8,7 +20,16 @@
   border-radius: $border-radius-full;
   transition: transform 0.2s ease;
 
+  svg {
+    transition: color 0.3s ease;
+    will-change: transform;
+  }
+
   &:hover {
     transform: scale(1.2);
+  }
+
+  &[data-favorite='true'] svg {
+    animation: favorite-pop 0.5s ease;
   }
 }

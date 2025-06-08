@@ -28,6 +28,7 @@ export function FavoriteButton({
       type="button"
       onClick={toggleFavorite}
       className={`${favoriteButton} ${className ?? ''}`}
+      data-favorite={favorite}
       title={
         favorite
           ? 'Remove from favorites'
