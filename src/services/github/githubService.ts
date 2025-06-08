@@ -52,5 +52,4 @@ class GitHubService {
   }
 }
 
-// Exportamos una única instancia del servicio
 export const githubService = new GitHubService();
