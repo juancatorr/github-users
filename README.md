@@ -1,40 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# GitHub Users Explorer
 
-## Getting Started
+Una aplicación web para explorar usuarios de GitHub y sus repositorios, construida con Next.js.
 
-First, run the development server:
+## Stack Tecnológico
 
+### Core
+- **Framework**: Next.js 14 (Pages Router)
+- **Lenguaje**: TypeScript
+- **Estado**: React Query + Zustand
+
+### Estilos
+- **CSS Modules**
+- **SASS**
+- **clsx**: Manejo de clases condicionales
+
+### Desarrollo
+- **Package Manager**: pnpm
+- **Linting/Formatting**: Biome
+- **Control de Versiones**: Git
+
+### Testing
+- **Unit Testing**: Jest
+- **Integration Testing**: React Testing Library
+
+### Despliegue
+- **Plataforma**: Vercel
+
+## Requisitos Previos
+
+- Node.js (versión 18 o superior)
+- pnpm (versión 8 o superior)
+
+## Configuración del Entorno de Desarrollo
+
+1. Clonar el repositorio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <url-del-repositorio>
+cd github-users
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instalar dependencias:
+```bash
+pnpm install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. Crear archivo de variables de entorno:
+```bash
+cp .env.example .env.local
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+4. Iniciar el servidor de desarrollo:
+```bash
+pnpm dev
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Decisiones de Desarrollo
 
-## Learn More
+### Manejo de Errores
 
-To learn more about Next.js, take a look at the following resources:
+- Se configuró el ambiente de desarrollo con Biome en lugar de Prettier y ESLint, y con pnpm en lugar de npm, priorizando el rendimiento y la velocidad.
+- Se aplicó CSS Modules, como solicita el enunciado, y para hacer el código más legible y práctico se implementó SASS.
+- Se evitó el uso de librerías externas de estilos o no esenciales, priorizando la performance. En caso de ser necesario, se implementaría mediante lazy loading.
+- Se utilizó clsx para combinar clases CSS de forma óptima.
+- Para el manejo de estado global de la aplicación se implementó Zustand.
+- Para el manejo de errores se optó por utilizar las alternativas que ofrece Next.js (404.tsx y _error.tsx).
+- Se aplicó SSR únicamente en la página de detalles de usuario, tal como lo indica el enunciado.
+- La aplicación se despliega en Vercel, por su practicidad e integración con GitHub.
+- Aplicación 100% responsive.
+- Se agregaron las metaetiquetas necesarias para el SEO.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Estado de la Aplicación
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Se utiliza React Query para el manejo de estado asíncrono y caché de datos de la API.
+- Zustand para el estado global de la aplicación.
+- La hidratación del estado se realiza en el servidor para mejorar el rendimiento inicial.
 
-## Deploy on Vercel
+### Más decisiones por documentar...
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts Disponibles
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- `pnpm dev`: Inicia el servidor de desarrollo
+- `pnpm build`: Construye la aplicación para producción
+- `pnpm start`: Inicia la aplicación en modo producción
+- `pnpm lint`: Ejecuta el linter
+- `pnpm test`: Ejecuta las pruebas (cuando estén implementadas)
