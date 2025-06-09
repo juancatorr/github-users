@@ -8,10 +8,11 @@ import styles from './UsersGrid.module.scss';
 import { UsersSearch } from './UsersSearch';
 
 const {
+  'users-grid': usersGrid,
   'users-grid__grid': usersGrid__grid,
   'users-grid__counter': usersGrid__counter,
-  'users-grid__loading': usersGrid__loading,
   'users-grid__empty': usersGrid__empty,
+  'users-grid__loading': usersGrid__loading,
 } = styles;
 
 export function UsersContent() {
@@ -70,7 +71,7 @@ export function UsersContent() {
     : 'No users available';
 
   return (
-    <>
+    <div className={usersGrid}>
       <UsersSearch onSearch={setSearchQuery} />
       <div className={usersGrid__counter}>
         Users shown: {totalUsers}
@@ -96,6 +97,6 @@ export function UsersContent() {
           Loading more users...
         </div>
       )}
-    </>
+    </div>
   );
 }
