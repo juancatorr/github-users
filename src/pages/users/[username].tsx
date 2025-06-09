@@ -82,12 +82,24 @@ export const getServerSideProps: GetServerSideProps<{
 
   const queryClient = new QueryClient();
 
-  await prefetchUserData(queryClient, username);
+  try {
+    await prefetchUserData(queryClient, username);
 
-  return {
-    props: {
-      username,
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
+    return {
+      props: {
+        username,
+        dehydratedState: dehydrate(queryClient),
+      },
+    };
+  } catch (error) {
+    if (
+      error instanceof Error &&
+      error.message.includes('Not Found')
+    ) {
+      return {
+        notFound: true,
+      };
+    }
+    throw error;
+  }
 };

@@ -34,10 +34,13 @@ export class ApiClient {
       return data;
     } catch (error) {
       if (error instanceof AxiosError) {
-        throw new Error(
+        const customError = new Error(
           error.response?.data?.message ||
             'Error accessing API'
-        );
+        ) as Error & { statusCode?: number };
+        customError.statusCode =
+          error.response?.status || 500;
+        throw customError;
       }
       throw error;
     }
