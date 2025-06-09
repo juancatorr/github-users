@@ -1,5 +1,6 @@
 import { Layout } from '@/components/Layout';
 import { RepoList } from '@/components/RepoList';
+import { Seo } from '@/components/Seo';
 import { UserProfile } from '@/components/UserProfile';
 import { useUserDetails } from '@/hooks/users/useUserDetails';
 import { useUserRepos } from '@/hooks/users/useUserRepos';
@@ -23,8 +24,35 @@ export default function UserPage({ username }: Props) {
   const { data: repos, isLoading: isLoadingRepos } =
     useUserRepos(username);
 
+  const title = user
+    ? `${user.name || user.login} - GitHub Profile`
+    : isLoadingUser
+      ? 'Loading Profile...'
+      : 'User Not Found';
+
+  const description = user
+    ? `View ${user.name || user.login}'s GitHub profile and repositories. Bio: ${user.bio || 'No bio available'}. Followers: ${user.followers}, Following: ${user.following}`
+    : 'GitHub user profile and repositories';
+
   return (
     <Layout>
+      <Seo
+        title={title}
+        description={description}
+        image={
+          user?.avatar_url
+            ? {
+                url: user.avatar_url,
+                alt: `${user.login}'s avatar`,
+              }
+            : undefined
+        }
+        twitterHandle={
+          user?.twitter_username
+            ? `@${user.twitter_username}`
+            : undefined
+        }
+      />
       {isLoadingUser ? (
         <div>Loading user...</div>
       ) : user ? (
