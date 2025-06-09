@@ -48,6 +48,16 @@ img {
   padding: 0 $spacing-md;
 }
 
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  height: 50vh;
+}
+
 // Grid layout
 .grid {
   display: grid;
