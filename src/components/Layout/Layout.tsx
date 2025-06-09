@@ -38,8 +38,8 @@ export function Layout({ children }: LayoutProps) {
       <footer className={layout__footer}>
         <div className={layout__footer_content}>
           <p>
-            &copy; {new Date().getFullYear()} Juan Carlos
-            Clavijo Villca
+            &copy; {new Date().getFullYear()} GitHub Users
+            Explorer
           </p>
         </div>
       </footer>
