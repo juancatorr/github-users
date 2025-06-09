@@ -60,7 +60,6 @@ export function RepoCard({ repo }: RepoCardProps) {
   );
 }
 
-// Colores comunes de lenguajes de programación
 function getLanguageColor(language: string): string {
   const colors: Record<string, string> = {
     TypeScript: '#3178c6',
@@ -75,5 +74,5 @@ function getLanguageColor(language: string): string {
     Rust: '#dea584',
   };
 
-  return colors[language] || '#6e7681'; // Color por defecto
+  return colors[language] || '#6e7681';
 }
