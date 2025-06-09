@@ -27,7 +27,7 @@ export class ApiClient {
     config?: AxiosRequestConfig
   ): Promise<T> {
     try {
-      const { data } = await this.client({
+      const { data } = await this.client.request({
         ...config,
         url: endpoint,
       });

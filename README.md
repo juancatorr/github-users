@@ -35,7 +35,7 @@ Una aplicación web para explorar usuarios de GitHub y sus repositorios, constru
 
 1. Clonar el repositorio:
 ```bash
-git clone <url-del-repositorio>
+git clone https://github.com/juancatorr/github-users.git
 cd github-users
 ```
 
@@ -70,6 +70,7 @@ La aplicación estará disponible en [http://localhost:3000](http://localhost:30
 - La aplicación se despliega en Vercel, por su practicidad e integración con GitHub.
 - Aplicación 100% responsive.
 - Se agregaron las metaetiquetas necesarias para el SEO.
+- Se agrega test unitarios solo en el punto mas critico de la aplicacion que es el apiClient.ts por cuestiones de tiempo.
 
 ### Estado de la Aplicación
 
@@ -85,4 +86,4 @@ La aplicación estará disponible en [http://localhost:3000](http://localhost:30
 - `pnpm build`: Construye la aplicación para producción
 - `pnpm start`: Inicia la aplicación en modo producción
 - `pnpm lint`: Ejecuta el linter
-- `pnpm test`: Ejecuta las pruebas (cuando estén implementadas)
+- `pnpm test`: Ejecuta las pruebas
