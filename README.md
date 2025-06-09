@@ -5,7 +5,7 @@ Una aplicación web para explorar usuarios de GitHub y sus repositorios, constru
 ## Stack Tecnológico
 
 ### Core
-- **Framework**: Next.js 14 (Pages Router)
+- **Framework**: Next.js 15 (Pages Router)
 - **Lenguaje**: TypeScript
 - **Estado**: React Query + Zustand
 
@@ -28,7 +28,7 @@ Una aplicación web para explorar usuarios de GitHub y sus repositorios, constru
 
 ## Requisitos Previos
 
-- Node.js (versión 18 o superior)
+- Node.js (versión 20 o superior)
 - pnpm (versión 8 o superior)
 
 ## Configuración del Entorno de Desarrollo
@@ -58,8 +58,6 @@ La aplicación estará disponible en [http://localhost:3000](http://localhost:30
 
 ## Decisiones de Desarrollo
 
-### Manejo de Errores
-
 - Se configuró el ambiente de desarrollo con Biome en lugar de Prettier y ESLint, y con pnpm en lugar de npm, priorizando el rendimiento y la velocidad.
 - Se aplicó CSS Modules, como solicita el enunciado, y para hacer el código más legible y práctico se implementó SASS.
 - Se evitó el uso de librerías externas de estilos o no esenciales, priorizando la performance. En caso de ser necesario, se implementaría mediante lazy loading.
@@ -72,13 +70,9 @@ La aplicación estará disponible en [http://localhost:3000](http://localhost:30
 - Se agregaron las metaetiquetas necesarias para el SEO.
 - Se agrega test unitarios solo en el punto mas critico de la aplicacion que es el apiClient.ts por cuestiones de tiempo.
 
-### Estado de la Aplicación
-
 - Se utiliza React Query para el manejo de estado asíncrono y caché de datos de la API.
 - Zustand para el estado global de la aplicación.
 - La hidratación del estado se realiza en el servidor para mejorar el rendimiento inicial.
-
-### Más decisiones por documentar...
 
 ## Scripts Disponibles
 
