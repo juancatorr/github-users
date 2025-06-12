@@ -23,6 +23,9 @@ const {
   'user-profile__stat': userProfile__stat,
   'user-profile__stat-label': userProfile__stat_label,
   'user-profile__stat-value': userProfile__stat_value,
+  'user-profile__name-mobile': userProfile__name_mobile,
+  'user-userProfile__username-mobile':
+    userProfile__username_mobile,
 } = styles;
 
 interface UserProfileProps {
@@ -64,6 +67,19 @@ export function UserProfile({ user }: UserProfileProps) {
       )}
 
       <div className={userProfile__meta}>
+        <div>
+          <h1 className={userProfile__name_mobile}>
+            {user.name || user.login}
+          </h1>
+          <a
+            href={`https://github.com/${user.login}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={userProfile__username_mobile}
+          >
+            @{user.login}
+          </a>
+        </div>
         {user.location && (
           <span className={userProfile__meta_item}>
             <FaMapMarkerAlt /> {user.location}
